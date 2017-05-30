@@ -49,8 +49,8 @@ end
 beautiful.init("~/.config/awesome/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
-terminal = "x-terminal-emulator"
--- terminal = "sakura"
+-- terminal = "x-terminal-emulator"
+terminal = "gnome-terminal --hide-menubar"
 editor = os.getenv("EDITOR") or "vim"
 editor_cmd = terminal .. " -e " .. editor
 
@@ -219,6 +219,7 @@ for s = 1, screen.count() do
     right_layout:add(mytextclock)
     right_layout:add(mylayoutbox[s])
 
+
     -- Now bring it all together (with the tasklist in the middle)
     local layout = wibox.layout.align.horizontal()
     layout:set_left(left_layout)
@@ -299,9 +300,15 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey }, "p", function() menubar.show() end),
 
     -- Own additions
-    awful.key({ modkey, "Shift" }, "l", function() awful.util.spawn_with_shell("lock") end),
+    awful.key({ modkey, "Shift", "Control" }, "l", function() awful.util.spawn_with_shell("lock") end),
+    awful.key({ modkey, "Shift", "Control" }, "n", function() awful.util.spawn_with_shell("xinput disable 10") end),
+    awful.key({ modkey, "Shift", "Control" }, "m", function() awful.util.spawn_with_shell("xinput enable 10") end),
     awful.key({ modkey }, "F6", function() awful.util.spawn_with_shell("xbacklight -inc 10") end),
     awful.key({ modkey }, "F5", function() awful.util.spawn_with_shell("xbacklight -dec 10") end),
+    awful.key({ modkey }, "F4", function() awful.util.spawn_with_shell("sudo merten-backlight up") end),
+    awful.key({ modkey }, "F3", function() awful.util.spawn_with_shell("sudo merten-backlight down") end),
+    awful.key({ modkey, "Shift", "Control" }, "F6", function() awful.util.spawn_with_shell("merten-light -inc") end),
+    awful.key({ modkey, "Shift", "Control" }, "F5", function() awful.util.spawn_with_shell("merten-light -dec") end),
     awful.key({ modkey }, "F12", function() awful.util.spawn_with_shell("amixer -D pulse sset Master 5%+") end),
     awful.key({ modkey }, "F11", function() awful.util.spawn_with_shell("amixer -D pulse sset Master 5%-") end)
 )
@@ -486,3 +493,4 @@ client.connect_signal("unfocus", function(c)
 
 -- Own scripts to run on startup
 awful.util.spawn_with_shell("xautolock -time 10 -locker lock")
+awful.util.spawn_with_shell("compton -c --backend glx --vsync opengl-swc --inactive-opacity-override -i 0.85")

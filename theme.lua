@@ -6,16 +6,16 @@ theme = {}
 
 theme.font          = "sans 8"
 
-theme.bg_normal     = "#22222222"
-theme.bg_focus      = "#535d6c22"
-theme.bg_urgent     = "#ff000022"
-theme.bg_minimize   = "#44444422"
+theme.bg_normal     = "#22222292"
+theme.bg_focus      = "#535d6c62"
+theme.bg_urgent     = "#ff000062"
+theme.bg_minimize   = "#44444462"
 theme.bg_systray    = theme.bg_normal
 
-theme.fg_normal     = "#aaaaaaaa"
-theme.fg_focus      = "#ffffffaa"
-theme.fg_urgent     = "#ffffffaa"
-theme.fg_minimize   = "#ffffffaa"
+theme.fg_normal     = "#ddddddff"
+theme.fg_focus      = "#ffffffff"
+theme.fg_urgent     = "#ffffffff"
+theme.fg_minimize   = "#ffffffff"
 
 theme.border_width  = 1
 theme.border_normal = "#00000000"
@@ -73,7 +73,8 @@ theme.titlebar_maximized_button_focus_inactive  = "/usr/share/awesome/themes/def
 theme.titlebar_maximized_button_normal_active = "/usr/share/awesome/themes/default/titlebar/maximized_normal_active.png"
 theme.titlebar_maximized_button_focus_active  = "/usr/share/awesome/themes/default/titlebar/maximized_focus_active.png"
 
-theme.wallpaper = "/usr/share/awesome/themes/default/background.png"
+-- theme.wallpaper = "/usr/share/awesome/themes/default/background.png"
+theme.wallpaper = "~/Pictures/wallpaper_yellow.jpg"
 
 -- You can use your own layout icons like this:
 theme.layout_fairh = "/usr/share/awesome/themes/default/layouts/fairhw.png"
@@ -97,7 +98,7 @@ theme.icon_theme = nil
 
 -- Own additions
 theme.border_width = 1
-theme.useless_gap_width = "10"
+theme.useless_gap_width = "5"
 
 return theme
 -- vim: filetype=lua:expandtab:shiftwidth=4:tabstop=8:softtabstop=4:textwidth=80
